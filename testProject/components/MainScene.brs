@@ -10,7 +10,7 @@ sub init()
 
 	m.poster = m.top.findNode("poster")
 
-	m.global.addFields({
+	m.top.addFields({
 		"AuthManager": createObject("roSGNode", "AuthManager")
 		"booleanValue": true
 		"stringValue": "stringValue"
@@ -30,7 +30,7 @@ sub init()
 end sub
 
 sub onTimerFired()
-	m.global.launchComplete = true
+	m.top.launchComplete = true
 end sub
 
 function multiplyNumbers(a as Dynamic, b as Dynamic) as Dynamic

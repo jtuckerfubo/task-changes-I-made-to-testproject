@@ -8,48 +8,48 @@ describe('Login', async function () {
 		await waitForApplicationLoad()
 
 		// Select login button
-		await ecp.sendKeyPress(ecp.Key.OK);
+		await ecp.sendKeypress(ecp.Key.Ok);
 
 		// Select email button
-		await ecp.sendKeyPress(ecp.Key.OK);
+		await ecp.sendKeypress(ecp.Key.Ok);
 
 		await ecp.sendText('bob@hotmail.com')
 
-		// Navigate down to OK button and click it
-		await ecp.sendKeyPressSequence([
-			ecp.Key.DOWN,
-			ecp.Key.DOWN,
-			ecp.Key.DOWN,
-			ecp.Key.DOWN,
-			ecp.Key.OK
+		// Navigate down to Ok button and click it
+		await ecp.sendKeypressSequence([
+			ecp.Key.Down,
+			ecp.Key.Down,
+			ecp.Key.Down,
+			ecp.Key.Down,
+			ecp.Key.Ok
 		])
 
 		// Navigate down to password button and click it
-		await ecp.sendKeyPressSequence([
-			ecp.Key.DOWN,
-			ecp.Key.OK
+		await ecp.sendKeypressSequence([
+			ecp.Key.Down,
+			ecp.Key.Ok
 		])
 
 		await ecp.sendText('12345678')
 
-		// Navigate down to OK button and click it
-		await ecp.sendKeyPressSequence([
-			ecp.Key.DOWN,
-			ecp.Key.DOWN,
-			ecp.Key.DOWN,
-			ecp.Key.DOWN,
-			ecp.Key.OK
+		// Navigate down to Ok button and click it
+		await ecp.sendKeypressSequence([
+			ecp.Key.Down,
+			ecp.Key.Down,
+			ecp.Key.Down,
+			ecp.Key.Down,
+			ecp.Key.Ok
 		])
 
 		// Navigate down to submit button and click it
-		await ecp.sendKeyPressSequence([
-			ecp.Key.DOWN,
-			ecp.Key.OK
+		await ecp.sendKeypressSequence([
+			ecp.Key.Down,
+			ecp.Key.Ok
 		])
 
-		await odc.observeField({keyPath: 'AuthManager.isLoggedIn', match: true});
+		await odc.onFieldChangeOnce({keyPath: 'AuthManager.isLoggedIn', match: true});
 		const node = await odc.getFocusedNode()
-		expect(node.id).to.equal('rowList');
-		expect(node.subtype).to.equal('RowList');
+		expect(node?.node?.id).to.equal('rowList');
+		expect(node?.node?.subtype).to.equal('RowList');
 	});
 });

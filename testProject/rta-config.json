@@ -1,15 +1,19 @@
 {
-    "$schema": "https://raw.githubusercontent.com/triwav/roku-test-automation/master/client/rta-config.schema.json",
+    "$schema": "https://raw.githubusercontent.com/triwav/roku-test-automation/master/server/rta-config.schema.json",
     "RokuDevice": {
         "devices": [
             {
-                "host": "192.168.10.193",
-                "password": "aaaa",
-                "properties": {
-                    "name": "RTA 1"
-                }
+                "host": "192.168.0.22",
+                "password": "ahov"
             }
-        ],
-        "deviceIndex": 0
+        ]
+    },
+    "ECP": {
+        "default": {
+            "launchChannelId": "dev"
+        }
+    },
+    "OnDeviceComponent": {
+        "logLevel": "verbose"
     }
 }

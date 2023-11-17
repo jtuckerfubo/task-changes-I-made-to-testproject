@@ -62,7 +62,7 @@ sub onPasswordDialogWasClosed(event)
 end sub
 
 sub onSubmitButtonSelected()
-	m.global.authManager.callFunc("loginUser", Invalid)
+	m.top.getScene().authManager.callFunc("loginUser", Invalid)
 	homePage = m.top.getScene().pagesContainer.createChild("HomePage")
 	setFocus(homePage)
 end sub
